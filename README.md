@@ -1,4 +1,4 @@
-# pysparkpro
+# pysparkpro —— 通过web界面执行spark集群和机器学习算法进行数据分析。
 
 Pysparkpro based on python development, support to Spark, Flink, etc as the underlying distributed computing engine, through a set of unified configuration file to complete the batch, flow calculation, the Rest service development.
 
