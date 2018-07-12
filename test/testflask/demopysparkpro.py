@@ -22,8 +22,8 @@ def client_msg(msg):
     data = spark.read.csv("file:///Users/leiqiankun/PycharmProjects/lqkcode/tianchi/pyspark_code/fresh_comp_offline/tianchi_fresh_comp_train_item.csv", header=True)
     data.createOrReplaceTempView("user")
     datatem = spark.sql(cur)
-
-    emit('server_response', {'data': datatem.rdd.collect()})
+    datat_response = datatem.rdd.collect()
+    emit('server_response', {'data': datat_response})
 
 
 @socketio.on('connect_event')

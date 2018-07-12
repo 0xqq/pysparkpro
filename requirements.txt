@@ -6,6 +6,7 @@ greenlet==0.4.13
 itsdangerous==0.24
 Jinja2==2.10
 MarkupSafe==1.0
+ply==3.11
 py4j==0.10.4
 pyspark==2.2.1
 python-engineio==2.2.0
