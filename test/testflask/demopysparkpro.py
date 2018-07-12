@@ -19,7 +19,7 @@ def index():
 @socketio.on('client_event', namespace='/test')
 def client_msg(msg):
     cur = unquote(msg["data"])
-    data = spark.read.csv("file:///Users/leiqiankun/PycharmProjects/lqkcode/tianchi/pyspark_code/fresh_comp_offline/tianchi_fresh_comp_train_item.csv", header=True)
+    data = spark.read.csv("file:///Users/leiqiankun/PycharmProjects/lqkcode/tianchi/pysparkpro/test/testflask/data/tianchi_fresh_comp_train_item.csv", header=True)
     data.createOrReplaceTempView("user")
     datatem = spark.sql(cur)
     datat_response = datatem.rdd.collect()
