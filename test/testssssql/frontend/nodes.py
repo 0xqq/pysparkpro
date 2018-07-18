@@ -93,3 +93,18 @@ class ShowTables():
     def __init__(self, table_name):
         self.type = 'SHOWTABLES'
         self.table_name = table_name
+
+
+class Value():
+    def __init__(self, value_type, value):
+        self.type = "VALUE"
+        self.value_type = value_type
+        self.value = value
+
+
+class OpNode():
+    def __init__(self, left, op, right):
+        self.type = "OP"
+        self.op = op.upper()
+        self.left = left
+        self.right = right
