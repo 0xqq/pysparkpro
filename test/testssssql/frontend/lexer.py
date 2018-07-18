@@ -1,6 +1,5 @@
 # coding=utf-8
 # Created by Tian Yuanhao on 2016/3/25.
-# from string import upper
 import ply.lex as lex
 
 
@@ -9,7 +8,8 @@ reversed = (
     # Main
     'CREATE', 'TABLE', 'DROP', 'SHOW', 'ALTER', 'SELECT', 'FROM', 'WHERE',
     'INSERT', 'DELETE', 'UPDATE', 'VIEW', 'USER', 'REVOKE', 'GRANT',
-    'INDEX', 'LOAD', 'SET', 'INTO', 'VALUES', 'TABLES',
+    'INDEX', 'LOAD', 'SET', 'INTO', 'VALUES', 'TABLES', 'ALERT', 'ADD', "ON", "TO",
+    'PASSWORD',
     # Modifier
     'PRIMARY', 'KEY', 'DESC', 'ASC',
     # Const Value
@@ -75,7 +75,7 @@ def t_error(t):
 lexer = lex.lex()
 
 if __name__ == '__main__':
-    data = input('>> ')
+    data = input('Lexer > ')
     lexer = lex.lex()
     lexer.input(data)
     while True:
