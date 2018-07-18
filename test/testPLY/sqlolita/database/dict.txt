@@ -1,0 +1,6 @@
+[ABC]
+id INT 1
+name CHAR 10
+age INT 1
+grade INT 1
+

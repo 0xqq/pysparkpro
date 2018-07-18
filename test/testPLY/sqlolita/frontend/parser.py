@@ -64,6 +64,7 @@ def p_showtables(p):
 def p_createuser(p):
     """ createuser : CREATE USER ID PASSWORD STRING"""
     p[0] = CreateUserNode(p[3], p[5])
+    data = CreateIndexNode
 
 
 def p_grantuser(p):

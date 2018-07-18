@@ -21,6 +21,7 @@ def login():
     else:
         return False
 
+
 if __name__ == "__main__":
 
     while not login():
@@ -29,11 +30,13 @@ if __name__ == "__main__":
     while True:
         command = input("SQLolita > ")
         while ';' not in command:
-            command += " " + input()
+            command += " "
 
         result = parser.parse(command, lexer=lex)
-        if not result: continue
-        if result.type == "EXIT": break
+        if not result:
+            continue
+        if result.type == "EXIT":
+            break
 
         # print "OK"
         execute_main(result)

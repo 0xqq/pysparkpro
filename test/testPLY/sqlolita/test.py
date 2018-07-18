@@ -1,12 +1,11 @@
 # coding=utf-8
 # Created by Tian Yuanhao on 2016/4/5.
-from string import upper
 
 from frontend.lexer import lexer as lex
 from frontend.parser import parser
 
 create_table_test = """
-create table A (
+create table ABC (
   id int,
   name char(10),
   age int,
@@ -40,7 +39,7 @@ def exec_sql(sql):
     execute_main(res)
 
 
-# exec_sql(insert_test)
+exec_sql(create_table_test)
 # exec_sql("drop user tyh password 'tyh';")
 #exec_sql("insert into big values(1, 1), (2 ,2);")
 
