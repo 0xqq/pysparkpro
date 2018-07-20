@@ -1,0 +1,207 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    HELP
+    VIEW
+    IS
+    LOAD
+    NOT
+    DESC
+    ALTER
+    ASC
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> command ;
+Rule 2     command -> ddl
+Rule 3     command -> dml
+Rule 4     command -> utility
+Rule 5     command -> nothing
+Rule 6     ddl -> createtable
+Rule 7     ddl -> createindex
+Rule 8     ddl -> droptable
+Rule 9     ddl -> dropindex
+Rule 10    ddl -> showtables
+Rule 11    ddl -> alerttable
+Rule 12    ddl -> createuser
+Rule 13    ddl -> grantuser
+Rule 14    ddl -> revokeuser
+Rule 15    dml -> query
+Rule 16    dml -> insert
+Rule 17    dml -> delete
+Rule 18    dml -> update
+Rule 19    utility -> exit
+Rule 20    utility -> print
+Rule 21    showtables -> SHOW TABLES
+Rule 22    createuser -> CREATE USER ID PASSWORD STRING
+Rule 23    grantuser -> GRANT power_list ON non_mrelation_list TO non_mrelation_list
+Rule 24    revokeuser -> REVOKE power_list ON non_mrelation_list FROM non_mrelation_list
+Rule 25    power_list -> power_list , power_type
+Rule 26    power_list -> power_type
+Rule 27    power_type -> SELECT
+Rule 28    power_type -> UPDATE
+Rule 29    power_type -> INSERT
+Rule 30    power_type -> DELETE
+Rule 31    power_type -> PRINT
+Rule 32    power_type -> ALL
+Rule 33    alerttable -> ALERT TABLE ID ADD attrtype
+Rule 34    alerttable -> ALERT TABLE ID DROP non_mrelation_list
+Rule 35    createtable -> CREATE TABLE ID ( non_mattrtype_list )
+Rule 36    createindex -> CREATE INDEX ID ( ID )
+Rule 37    droptable -> DROP TABLE ID
+Rule 38    dropindex -> DROP INDEX ID ( ID )
+Rule 39    print -> PRINT ID
+Rule 40    exit -> EXIT
+Rule 41    query -> SELECT non_mselect_clause FROM non_mrelation_list opwhere_clause
+Rule 42    insert -> INSERT INTO ID VALUES inservalue_list
+Rule 43    inservalue_list -> ( non_mvalue_list ) , inservalue_list
+Rule 44    inservalue_list -> ( non_mvalue_list )
+Rule 45    delete -> DELETE FROM ID opwhere_clause
+Rule 46    update -> UPDATE ID SET relattr EQ relattr_or_value opwhere_clause
+Rule 47    non_mattrtype_list -> attrtype , non_mattrtype_list
+Rule 48    non_mattrtype_list -> attrtype
+Rule 49    attrtype -> ID type
+Rule 50    attrtype -> ID type ( NUMBER )
+Rule 51    attrtype -> PRIMARY KEY ( ID )
+Rule 52    type -> INT
+Rule 53    type -> CHAR
+Rule 54    non_mselect_clause -> non_mrelattr_list
+Rule 55    non_mselect_clause -> *
+Rule 56    non_mrelattr_list -> relattr , non_mrelattr_list
+Rule 57    non_mrelattr_list -> relattr
+Rule 58    relattr -> ID . ID
+Rule 59    relattr -> ID
+Rule 60    non_mrelation_list -> relation , non_mrelation_list
+Rule 61    non_mrelation_list -> relation
+Rule 62    relation -> ID
+Rule 63    opwhere_clause -> WHERE non_mcond_list
+Rule 64    opwhere_clause -> nothing
+Rule 65    non_mcond_list -> non_mcond_list AND non_mcond_list
+Rule 66    non_mcond_list -> non_mcond_list OR non_mcond_list
+Rule 67    non_mcond_list -> ( non_mcond_list )
+Rule 68    non_mcond_list -> condition
+Rule 69    condition -> relattr op relattr_or_value
+Rule 70    condition -> relattr EQ null_value
+Rule 71    condition -> relattr NE null_value
+Rule 72    relattr_or_value -> relattr
+Rule 73    relattr_or_value -> value
+Rule 74    non_mvalue_list -> value , non_mvalue_list
+Rule 75    non_mvalue_list -> value
+Rule 76    non_mvalue_list -> null_value , non_mvalue_list
+Rule 77    non_mvalue_list -> null_value
+Rule 78    value -> STRING
+Rule 79    value -> NUMBER
+Rule 80    null_value -> NULL
+Rule 81    op -> LT
+Rule 82    op -> LE
+Rule 83    op -> GT
+Rule 84    op -> GE
+Rule 85    op -> EQ
+Rule 86    op -> NE
+Rule 87    nothing -> <empty>
+
+Terminals, with rules where they appear
+
+(                    : 35 36 38 43 44 50 51 67
+)                    : 35 36 38 43 44 50 51 67
+*                    : 55
+,                    : 25 43 47 56 60 74 76
+.                    : 58
+;                    : 1
+ADD                  : 33
+ALERT                : 33 34
+ALTER                : 
+AND                  : 65
+ASC                  : 
+CHAR                 : 53
+CREATE               : 22 35 36
+DELETE               : 30 45
+DESC                 : 
+DROP                 : 34 37 38
+EQ                   : 46 70 85
+EXIT                 : 40
+FROM                 : 24 41 45
+GE                   : 84
+GRANT                : 23
+GT                   : 83
+HELP                 : 
+ID                   : 22 33 34 35 36 36 37 38 38 39 42 45 46 49 50 51 58 58 59 62
+INDEX                : 36 38
+INSERT               : 29 42
+INT                  : 52
+INTO                 : 42
+IS                   : 
+KEY                  : 51
+LE                   : 82
+LOAD                 : 
+LT                   : 81
+NE                   : 71 86
+NOT                  : 
+NULL                 : 80
+NUMBER               : 50 79
+ON                   : 23 24
+OR                   : 66
+PASSWORD             : 22
+PRIMARY              : 51
+PRINT                : 31 39
+REVOKE               : 24
+SELECT               : 27 41
+SET                  : 46
+SHOW                 : 21
+STRING               : 22 78
+TABLE                : 33 34 35 37
+TABLES               : 21
+TO                   : 23
+UPDATE               : 28 46
+USER                 : 22
+VALUES               : 42
+VIEW                 : 
+WHERE                : 63
+error                : 
+
+Nonterminals, with rules where they appear
+
+ALL                  : 32
+alerttable           : 11
+attrtype             : 33 47 48
+command              : 1
+condition            : 68
+createindex          : 7
+createtable          : 6
+createuser           : 12
+ddl                  : 2
+delete               : 17
+dml                  : 3
+dropindex            : 9
+droptable            : 8
+exit                 : 19
+grantuser            : 13
+insert               : 16
+inservalue_list      : 42 43
+non_mattrtype_list   : 35 47
+non_mcond_list       : 63 65 65 66 66 67
+non_mrelation_list   : 23 23 24 24 34 41 60
+non_mrelattr_list    : 54 56
+non_mselect_clause   : 41
+non_mvalue_list      : 43 44 74 76
+nothing              : 5 64
+null_value           : 70 71 76 77
+op                   : 69
+opwhere_clause       : 41 45 46
+power_list           : 23 24 25
+power_type           : 25 26
+print                : 20
+query                : 15
+relation             : 60 61
+relattr              : 46 56 57 69 70 71 72
+relattr_or_value     : 46 69
+revokeuser           : 14
+showtables           : 10
+start                : 0
+type                 : 49 50
+update               : 18
+utility              : 4
+value                : 73 74 75
+
