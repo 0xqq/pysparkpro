@@ -6,3 +6,5 @@ Pysparkpro based on python development, support to Spark, Flink, etc as the unde
 
 例如:
     安装的集群spark版本为2.3，那就将requirements.txt里面的pyspark版本改为pyspark==2.3。
+    
+>> 给个start鼓励一下！Thanks♪(･ω･)ﾉ

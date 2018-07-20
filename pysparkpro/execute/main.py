@@ -2,8 +2,6 @@
 
 import time
 from dsl.nodes import NodeType
-from session.abstract_class import PysparkPro
-
 
 def execute_create_table(node):
     pass
