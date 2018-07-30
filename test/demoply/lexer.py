@@ -7,8 +7,9 @@ import ply.lex as lex
 # List of token names.
 reversed = (
     # Main
-    'CREATE', 'TABLE', 'DROP', 'SHOW', 'ALTER', 'SELECT', 'FROM', 'WHERE',
-    'INSERT', 'DELETE', 'UPDATE', 'VIEW', 'USER', 'REVOKE', 'GRANT',
+    'CREATE', 'DROP', 'ALTER', 'SELECT', 'SHOW', 'INSERT', 'DELETE', 'UPDATE',
+    'TABLE', 'FROM', 'WHERE',
+    'VIEW', 'USER', 'REVOKE', 'GRANT',
     'INDEX', 'LOAD', 'SET', 'INTO', 'VALUES', 'TABLES', 'ALERT', 'ADD', "ON", "TO",
     'PASSWORD',
     # Modifier
@@ -74,7 +75,7 @@ def t_error(t):
     print("LexError [%s, %s]: Illegal character '%s'." % (t.lexer.lineno, t.lexer.lexpos, t.value[0]))
 
 
-lexer = lex.lex(debug=1)
+lexer = lex.lex()
 
 
 if __name__ == '__main__':
